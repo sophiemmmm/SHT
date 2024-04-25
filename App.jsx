@@ -41,7 +41,7 @@ const SubmitButton = styled.button`
   border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
-  transition: background-color 0.5s ease; // transitioning time
+  transition: background-color 0.5s ease; 
 
   &:hover {
     background-color: darkkhaki;
@@ -51,7 +51,6 @@ const SubmitButton = styled.button`
 const validationSchema = z.object({
     email: z.string().email(),
     password: z.string().min(5),
-    age: z.number().min(18, "You must be at least 18 years old to register."), // Validation for age
     terms: z.boolean(),
 });
 
@@ -104,18 +103,7 @@ function RegistrationForm() {
                     />
                 </div>
 
-                <div>
-                    <Label htmlFor="age">Age:</Label>
-                    <InputField
-                        id="age"
-                        {...register({
-                            name: "age",
-                            type: "number", // Use type "number" instead of "age"
-                            placeholder: "Enter your age",
-                            required: true,
-                        })}
-                    />
-                </div>
+
 
                 <div>
                     <Label htmlFor="password">Password:</Label>
@@ -143,10 +131,11 @@ function RegistrationForm() {
                     />
                     <Label htmlFor="terms">I agree to the terms and conditions</Label>
                 </div>
-                <SubmitButton type="submit">Register your new Account</SubmitButton>
+                <SubmitButton type="submit">Register for your account</SubmitButton>
             </FormContainer>
         </FormWrapper>
     );
 }
 
 export default RegistrationForm;
+
